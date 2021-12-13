@@ -1,0 +1,20 @@
+:root {
+  --background-color: #111111;
+  --text-color: #FFFFFF;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: $font-family;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 20px;
+  color: var(--text-color);
+  background: var(--background-color);
+}
