@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Elia Scotto's project</title>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-      <link rel="manifest" href="/img/favicon/site.webmanifest">
-      <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-      <meta name="msapplication-TileColor" content="#ffffff">
-      <meta name="theme-color" content="#ffffff">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elia Scotto's project</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
 
   </head>
   <body>
@@ -19,18 +20,8 @@
       <section class="section">
         <div class="container is-fluid">
           <div class="content">
-            <h4 class="title">Welcome to blog</h4>
+            <h4 class="title">Loading...</h4>
             <p>If you're seeing this message, that means you haven't yet compiled your ClojureScript!</p>
-            <p>Please run <code>shadow-cljs watch app</code> to start the ClojureScript compiler and reload the page.</p>
-            <h4>For better ClojureScript development experience in Chrome follow these steps:</h4>
-            <ul>
-              <li>Open DevTools
-              <li>Go to Settings ("three dots" icon in the upper right corner of DevTools > Menu > Settings F1 > General > Console)
-              <li>Check-in "Enable custom formatters"
-              <li>Close DevTools
-              <li>Open DevTools
-            </ul>
-            <p>See <a href="http://www.luminusweb.net/docs/clojurescript.md">ClojureScript</a> documentation for further details.</p>
           </div>
         </div>
       </section>
@@ -38,6 +29,8 @@
 
     <!-- scripts and styles -->
     {% style "/css/styles.css" %}
+
+    <link href="/css/light.css" rel="stylesheet" id="theme-link" value="">
 
     <script type="text/javascript">
         var csrfToken = "{{csrf-token}}";

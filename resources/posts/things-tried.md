@@ -1,6 +1,6 @@
 ---
-layout: post
 title: Things I haven't tried
+date: 2021-12-14
 ---
 
 > Keep away from people who try to belittle your ambitions. Small people always do that, but the really great make you feel that you, too, can become great.

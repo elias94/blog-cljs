@@ -6,10 +6,25 @@
 ;; -------------------------
 ;; Controllers
 
+(defn url [path]
+  (str "/api" path))
+
+(defn req [opts]
+  (cond
+    (contains? opts :get)
+    (GET (url (:get opts)) (dissoc opts :get))
+
+    (contains? opts :post)
+    (POST (url (:post opts)) (dissoc opts :post))))
+
 (defn fetch-posts []
-  (GET "/posts" {:handler #(session/set :posts %)}))
+  (req {:get     "/posts"
+        :handler #(session/set :posts %)}))
 
 (defn fetch-post [post-id]
-  (GET "/post" {:format :json
-                :params {:id post-id}
-                :handler #(session/set :post %)}))
+  (req {:get             "/post"
+        :format          :json
+        :response-format :json
+        :keywords?       true
+        :params          {:id post-id}
+        :handler         #(session/set :post %)}))

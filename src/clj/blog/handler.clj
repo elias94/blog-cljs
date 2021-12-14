@@ -2,7 +2,7 @@
   (:require
     [blog.middleware :as middleware]
     [blog.layout :refer [error-page]]
-    [blog.routes.main :refer [main-routes]]
+    [blog.routes.main :refer [main-routes home-routes]]
     [reitit.ring :as ring]
     [ring.middleware.content-type :refer [wrap-content-type]]
     [ring.middleware.webjars :refer [wrap-webjars]]
@@ -17,7 +17,8 @@
   :start
   (ring/ring-handler
     (ring/router
-      [(main-routes)])
+      [(home-routes)
+       (main-routes)])
     (ring/routes
       (ring/create-resource-handler
         {:path "/"})

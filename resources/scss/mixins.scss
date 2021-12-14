@@ -1,10 +1,15 @@
-@mixin mq($breakpoint)
+@mixin mq($breakpoint, $type: min)
 {
   @if map-has-key($breakpoints, $breakpoint)
   {
     $breakpoint-value: map-get($breakpoints, $breakpoint);
 
-    @media (min-width: $breakpoint-value)
+    @if $type == max
+    {
+      $breakpoint-value: $breakpoint-value - 1;
+    }
+
+    @media (#{$type}-width: $breakpoint-value)
     {
       @content;
     }

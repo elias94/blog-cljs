@@ -1,11 +1,12 @@
 {
   "scripts": {
-    "styles": "sass --watch resources/scss/main.scss:resources/public/css/styles.css"
+    "styles": "sass --watch resources/scss/main.scss:resources/public/css/styles.css resources/scss/light.scss:resources/public/css/light.css resources/scss/dark.scss:resources/public/css/dark.css"
   },
   "devDependencies": {
     "shadow-cljs": "^2.16.5"
   },
   "dependencies": {
+    "date-fns": "^2.27.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }

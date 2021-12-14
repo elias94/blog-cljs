@@ -1,10 +1,27 @@
 :root {
-  --background-color: #111111;
-  --text-color: #FFFFFF;
+  color-scheme: light dark;
 }
 
-html, body {
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: yellow; /* WebKit/Blink Browsers */
+  color: #111;
+}
+*::-moz-selection {
+  background: yellow; /* Gecko Browsers */
+  color: #111;
+}
+
+html,
+body {
   height: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
@@ -17,4 +34,135 @@ body {
   font-size: 20px;
   color: var(--text-color);
   background: var(--background-color);
+}
+
+.post {
+  width: 600px;
+  margin: 170px auto 140px auto;
+  padding: 0 30px;
+
+  &-title {
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1.25;
+  }
+
+  &-meta {
+    font-family: $font-base;
+    font-size: 16px;
+    line-height: 2em;
+    color: var(--text-color-secondary);
+    margin-top: 15px;
+  }
+
+  &-header {
+    margin-bottom: 30px;
+  }
+
+  &-nav {
+    font-size: 12px;
+    margin-bottom: 30px;
+    display: block;
+    color: var(--text-color-secondary);
+    text-decoration: none;
+  }
+
+  &-content {
+    p {
+      hyphens: auto;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--text-color);
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    article {
+      margin-top: 3em;
+    }
+
+    sup {
+      vertical-align: super;
+      line-height: 0.05em;
+      font-size: 14px;
+      padding: 0 2px;
+    }
+
+    blockquote {
+      border-left: 2px solid var(--text-color);
+      padding: 10px 0px 10px 30px;
+      margin: 40px 0;
+
+      p {
+        text-align: unset;
+        font-size: 20px;
+      }
+
+      p + p {
+        text-indent: 0;
+        text-align: right;
+      }
+
+      p ~ p {
+        margin-top: 0.8em;
+      }
+    }
+
+    p ~ p {
+      margin-top: 1.75em;
+    }
+
+    // p + p {
+    //   text-indent: 0.75em;
+    // }
+
+    a {
+      color: var(--text-color);
+    }
+  }
+}
+
+.header {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+
+  & > div {
+    cursor: pointer;
+  }
+}
+
+.footer {
+  font-family: $font-base;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  padding: 0 30px;
+  padding-bottom: 1.5em;
+  font-size: 14px;
+  color: var(--text-color-secondary);
+
+  &-menu {
+    margin: 10px 0;
+  }
+
+  &-menu-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+
+    & > a {
+      color: var(--text-color-secondary);
+    }
+
+    .sep {
+      margin: 0 10px;
+    }
+  }
 }

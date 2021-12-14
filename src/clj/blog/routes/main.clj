@@ -14,7 +14,7 @@
    [reitit.ring.middleware.parameters :as parameters]))
 
 ;; Regex for YAML header
-(def re-yaml #"^[\s]*---\n([^---]*)---\n")
+(def re-yaml #"^[\s]*---\n([^(-){3}]*)---\n")
 ;; Regex for YAML prop
 (def re-yaml-prop #"(\w+)\:\s(.+)")
 
@@ -24,14 +24,10 @@
       (let [props (->> (re-seq re-yaml-prop yaml)
                        (map rest))]
         (reduce
-         (fn [k v]
-           {(keyword (first k)) (second v)})
+         (fn [acc v]
+           (merge acc {(keyword (first v)) (second v)}))
+         {}
          props)))))
-
-(comment
-  (map rest '(["layout: post" "layout" "post"] ["title: Things I haven't tried" "title" "Things I haven't tried"]))
-  (rest ["layout: post" "layout" "post"])
-  (re-seq #"(\w+)\:\s(.+)" "layout: post\ntitle: Things I haven't tried\n"))
 
 (defn home-page [request]
   (layout/render request "home.html"))
@@ -69,7 +65,7 @@
       (string/trim)))
 
 (defn main-routes []
-  [""
+  ["/api"
    {:coercion spec-coercion/coercion
     :muuntaja formats/instance
     :middleware [;; query-params & form-params
@@ -86,7 +82,6 @@
                  coercion/coerce-response-middleware
                  ;; coercing request parameters
                  coercion/coerce-request-middleware]}
-   ["/" {:get home-page}]
    ["/posts"
     {:get (fn [_]
             (response/ok
@@ -101,3 +96,9 @@
                   :config  (parse-yaml post)}))
               (response/bad-request
                {:error "Invalid document"})))}]])
+
+(defn home-routes []
+  [""
+   {:middleware [middleware/wrap-csrf
+                 middleware/wrap-formats]}
+   ["/" {:get home-page}]])
