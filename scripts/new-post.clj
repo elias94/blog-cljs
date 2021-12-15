@@ -12,7 +12,7 @@
   (str "---\ntitle: " title "\n---\n\n\n"))
 
 (defn format-date []
-  (let [formatter (DateTimeFormatter/ofPattern "dd-MM-yyyy")]
+  (let [formatter (DateTimeFormatter/ofPattern "yyyy-MM-dd")]
     (-> (LocalDateTime/now)
         (.format formatter))))
 

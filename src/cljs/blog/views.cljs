@@ -14,10 +14,10 @@
   [:section.section>div.container>div.content
    [:img {:src "/img/warning_clojure.png"}]])
 
-(def re-date #"^[0-9]{2}-[0-9]{2}-[0-9]{4}")
+(def re-date #"^[0-9]{4}-[0-9]{2}-[0-9]{2}")
 
 (defn parse-filename [post]
-  {:date  (re-find re-date post)
+  {:date  (utils/format-date (re-find re-date post))
    :title (-> (string/split post re-date)
               (second)
               (subs 1)
@@ -42,10 +42,10 @@
        (anime
         #js
          {:targets  (.querySelectorAll title-el "div > span")
-          :duration 800
-          :delay    #(+ (.random anime 0 600) 400)
-          :opacity  #js [0 1]}
-        "-=600"))
+          :easing "easeInOutQuad"
+          :duration #(rand-int 800)
+          :delay    #(rand-int 400)
+          :opacity  #js [0 1]}))
      "300")))
 
 (defn home-title []
