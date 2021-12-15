@@ -15,9 +15,9 @@
   color: #111;
 }
 
-html,
-body {
+html, body {
   height: 100%;
+  overflow: hidden;
 }
 
 a {
@@ -34,6 +34,103 @@ body {
   font-size: 20px;
   color: var(--text-color);
   background: var(--background-color);
+}
+
+#app {
+  height: 100%;
+}
+
+.header {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  z-index: 100;
+
+  & > div {
+    cursor: pointer;
+    color: var(--text-color-secondary);
+  }
+}
+
+.footer {
+  font-family: $font-base;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  padding: 0 30px;
+  padding-bottom: 1.5em;
+  font-size: 14px;
+  color: var(--text-color-secondary);
+
+  &-menu {
+    margin: 10px 0;
+  }
+
+  &-menu-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+
+    & > a {
+      color: var(--text-color-secondary);
+    }
+
+    .sep {
+      margin: 0 10px;
+    }
+  }
+}
+
+.home {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  .main-title {
+    & > div {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      span {
+        opacity: 0;
+      }
+    }
+  }
+
+  &-content {
+    width: 600px;
+    margin: 30px auto 160px auto;
+  }
+
+  .posts-list {
+    margin-left: 0;
+    list-style: none;
+  }
+
+  .post-item {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .post-link {
+    font-size: 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .post-meta {
+    font-size: 14px;
+    line-height: 2em;
+    color: var(--text-color-secondary);
+    margin-top: 0px;
+  }
 }
 
 .post {
@@ -122,47 +219,6 @@ body {
 
     a {
       color: var(--text-color);
-    }
-  }
-}
-
-.header {
-  position: fixed;
-  top: 5px;
-  right: 10px;
-
-  & > div {
-    cursor: pointer;
-  }
-}
-
-.footer {
-  font-family: $font-base;
-  overflow: hidden;
-  width: 100%;
-  text-align: center;
-  padding: 0 30px;
-  padding-bottom: 1.5em;
-  font-size: 14px;
-  color: var(--text-color-secondary);
-
-  &-menu {
-    margin: 10px 0;
-  }
-
-  &-menu-line {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-
-    & > a {
-      color: var(--text-color-secondary);
-    }
-
-    .sep {
-      margin: 0 10px;
     }
   }
 }

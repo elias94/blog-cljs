@@ -3,43 +3,75 @@
    [reagent.core :as r]
    [clojure.string :as string]
    [blog.session :as session]
+   [herb.core :refer [<class]]
+   ["animejs" :as anime]
+   ["charming" :as charming]
    [markdown.core :refer [md->html]]
    [blog.theme :as theme]
    [blog.utils :as utils]))
-
-(defn nav-link [uri title page]
-  [:a.navbar-item
-   {:href   uri
-    :class (when (= page (session/get :page)) "is-active")}
-   title])
-
-(defn navbar []
-  (r/with-let [expanded? (r/atom false)]
-    [:nav.navbar.is-info>div.container
-     [:div.navbar-brand
-      [:a.navbar-item {:href "/" :style {:font-weight :bold}} "blog"]
-      [:span.navbar-burger.burger
-       {:data-target :nav-menu
-        :on-click #(swap! expanded? not)
-        :class (when @expanded? :is-active)}
-       [:span] [:span] [:span]]]
-     [:div#nav-menu.navbar-menu
-      {:class (when @expanded? :is-active)}
-      [:div.navbar-start
-       [nav-link "#/" "Home" :home]
-       [nav-link "#/about" "About" :about]]]]))
 
 (defn about-page []
   [:section.section>div.container>div.content
    [:img {:src "/img/warning_clojure.png"}]])
 
+(def re-date #"^[0-9]{2}-[0-9]{2}-[0-9]{4}")
+
+(defn parse-filename [post]
+  {:date  (re-find re-date post)
+   :title (-> (string/split post re-date)
+              (second)
+              (subs 1)
+              (string/replace #"-" " "))})
+
+(defn styled-title []
+  {:font-weight 700
+   :font-size "5em"
+   :line-height ".85em"
+   :text-transform "uppercase"
+   :letter-spacing "-.05em"
+   :border "7px solid var(--text-color)"
+   :padding "30px"
+   :margin "80px 0"
+   :opacity 1})
+
+(defn title-anim []
+  (let [title-el (.querySelector js/document ".main-title")]
+    (charming title-el)
+    (js/setTimeout
+     (fn []
+       (anime
+        #js
+         {:targets  (.querySelectorAll title-el "div > span")
+          :duration 800
+          :delay    #(+ (.random anime 0 600) 400)
+          :opacity  #js [0 1]}
+        "-=600"))
+     "300")))
+
+(defn home-title []
+  (r/create-class
+   {:component-did-mount
+    #(title-anim)
+    :reagent-render
+    (fn []
+      [:div.main-title {:class (<class styled-title)}
+       [:div "ELIA"]
+       [:div "SCO"]
+       [:div "TTO"]])}))
+
 (defn home-page []
-  [:section.section>div.container>div.content
-   (if-let [posts (session/get :posts)]
-     (for [post posts]
-       ^{:key (str post)}
-       [:a {:href (str "#/blog/" post)} post])
-     [:p "No posts!"])])
+  [:div.home
+   [home-title]
+   [:div.home-content
+    (if-let [posts (session/get :posts)]
+      [:ul.posts-list
+       (for [post posts]
+         (let [conf (parse-filename post)]
+           ^{:key (str post)}
+           [:li.post-item
+            [:a.post-link {:href (str "#/blog/" post)} (:title conf)]
+            [:span.post-meta (:date conf)]]))]
+      [:p "No posts!"])]])
 
 (defn post-page []
   (if-let [{:keys [content config]} (session/get :post)]

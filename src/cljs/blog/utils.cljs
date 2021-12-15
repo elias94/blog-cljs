@@ -17,4 +17,3 @@
   (and
    (.-matchMedia js/window)
    (.-matches (.matchMedia js/window "(prefers-color-scheme: dark)"))))
-

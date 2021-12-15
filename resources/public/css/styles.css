@@ -69,9 +69,9 @@ table {
   color: #111;
 }
 
-html,
-body {
+html, body {
   height: 100%;
+  overflow: hidden;
 }
 
 a {
@@ -87,6 +87,89 @@ body {
   font-size: 20px;
   color: var(--text-color);
   background: var(--background-color);
+}
+
+#app {
+  height: 100%;
+}
+
+.header {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  z-index: 100;
+}
+.header > div {
+  cursor: pointer;
+  color: var(--text-color-secondary);
+}
+
+.footer {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  padding: 0 30px;
+  padding-bottom: 1.5em;
+  font-size: 14px;
+  color: var(--text-color-secondary);
+}
+.footer-menu {
+  margin: 10px 0;
+}
+.footer-menu-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.footer-menu-line > a {
+  color: var(--text-color-secondary);
+}
+.footer-menu-line .sep {
+  margin: 0 10px;
+}
+
+.home {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.home .main-title > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.home .main-title > div span {
+  opacity: 0;
+}
+.home-content {
+  width: 600px;
+  margin: 30px auto 160px auto;
+}
+.home .posts-list {
+  margin-left: 0;
+  list-style: none;
+}
+.home .post-item {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.home .post-link {
+  font-size: 16px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+.home .post-meta {
+  font-size: 14px;
+  line-height: 2em;
+  color: var(--text-color-secondary);
+  margin-top: 0px;
 }
 
 .post {
@@ -157,42 +240,6 @@ body {
 }
 .post-content a {
   color: var(--text-color);
-}
-
-.header {
-  position: fixed;
-  top: 5px;
-  right: 10px;
-}
-.header > div {
-  cursor: pointer;
-}
-
-.footer {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  overflow: hidden;
-  width: 100%;
-  text-align: center;
-  padding: 0 30px;
-  padding-bottom: 1.5em;
-  font-size: 14px;
-  color: var(--text-color-secondary);
-}
-.footer-menu {
-  margin: 10px 0;
-}
-.footer-menu-line {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-.footer-menu-line > a {
-  color: var(--text-color-secondary);
-}
-.footer-menu-line .sep {
-  margin: 0 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */

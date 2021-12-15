@@ -17,6 +17,7 @@
                  [cprop "0.1.19"]
                  [expound "0.8.10"]
                  [funcool/struct "1.4.0"]
+                 [herb "0.10.1"]
                  [json-html "0.4.7"]
                  [luminus-migrations "0.7.1"]
                  [luminus-transit "0.1.3"]
