@@ -78,7 +78,6 @@
 
 (defn init! []
   (start-router!)
-  (session/init)
   (theme/init)
   (ajax/load-interceptors!)
   (hook-browser-navigation!)

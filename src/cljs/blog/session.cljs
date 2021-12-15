@@ -13,6 +13,23 @@
 (defn set [k v]
   (swap! session assoc k v))
 
-(defn init []
-  (let [theme (if (dark-theme?) "dark" "light")]
-    (set :theme theme)))
+;; prefix for local storage
+(def ls-prefix "unico")
+
+(defn ls-key [k]
+  (str ls-prefix "-" (if (keyword? k) (name k) k)))
+
+(defn set-ls
+  "Set key-value into localStorage, using prefix."
+  [k v]
+  (.setItem js/localStorage (ls-key k) v))
+
+(defn get-ls
+  "Return value of key from localStorage."
+  [k]
+  (.getItem js/localStorage (ls-key k)))
+
+(defn remove-ls
+  "Remove key from localStorage."
+  [k]
+  (.removeItem js/localStorage (ls-key k)))

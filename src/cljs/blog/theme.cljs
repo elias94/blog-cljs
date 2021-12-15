@@ -42,6 +42,7 @@
         curr (.getAttribute link "value")
         update? (not= curr new-theme)]
     (session/set :theme new-theme)
+    (session/set-ls :theme new-theme)
     (when update?
       (let [value (str new-theme)]
         (set! (.-value link) value)
@@ -55,5 +56,9 @@
        moon-icon)]))
 
 (defn init []
-  (let [theme (if (dark-theme?) "dark" "light")]
-    (change-theme theme)))
+  (let [theme (if (dark-theme?) "dark" "light")
+        ls-theme (session/get-ls :theme)]
+    (prn ls-theme)
+    (if ls-theme
+      (change-theme ls-theme)
+      (change-theme theme))))
