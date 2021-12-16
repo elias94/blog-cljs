@@ -15,6 +15,7 @@
 
 ;; Regex for YAML header
 (def re-yaml #"^[\s]*---\n([^(-){3}]*)---\n")
+
 ;; Regex for YAML prop
 (def re-yaml-prop #"(\w+)\:\s(.+)")
 
@@ -43,6 +44,9 @@
       (io/resource)
       (slurp)))
 
+(defn filter-post? [post]
+  (string/starts-with? post "@"))
+
 (defn- get-posts-files []
   (-> "posts"
       (io/resource)
@@ -50,10 +54,11 @@
       (.listFiles)))
 
 (defn get-posts-name []
-  (let [posts (get-posts-files)]
-    (map
-     #(-> (.getName %) (remove-ext))  ; extract file-name without extension
-     posts)))
+  (->> (get-posts-files)
+       (map
+        #(-> (.getName %)
+             (remove-ext)))    ; extract file-name without extension
+       (filter #(not (string/starts-with? % "@")))))
 
 (defn post? [f-name]
   (let [src (io/resource (post-name f-name))]

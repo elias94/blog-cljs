@@ -1,0 +1,95 @@
+/*
+
+    Name:       gruvbox-dark
+    Author:     kRkk (https://github.com/krkk)
+
+    Original gruvbox color scheme by Pavel Pertsev (https://github.com/morhetz/gruvbox)
+
+*/
+
+.cm-s-gruvbox.CodeMirror,
+.cm-s-gruvbox .CodeMirror-gutters {
+  background-color: var(--code-background-color);
+  color: #bdae93;
+}
+.cm-s-gruvbox .CodeMirror-gutters {
+  background: var(--code-background-color);
+  border-right: 0px;
+}
+.cm-s-gruvbox .CodeMirror-linenumber {
+  color: #7c6f64;
+}
+.cm-s-gruvbox .CodeMirror-cursor {
+  border-left: 1px solid #ebdbb2;
+}
+.cm-s-gruvbox.cm-fat-cursor .CodeMirror-cursor {
+  background-color: #8e8d8875 !important;
+}
+.cm-s-gruvbox .cm-animate-fat-cursor {
+  background-color: #8e8d8875 !important;
+}
+.cm-s-gruvbox div.CodeMirror-selected {
+  background: #928374;
+}
+.cm-s-gruvbox span.cm-meta {
+  color: #83a598;
+}
+
+.cm-s-gruvbox span.cm-comment {
+  color: #928374;
+}
+.cm-s-gruvbox span.cm-number,
+span.cm-atom {
+  color: #d3869b;
+}
+.cm-s-gruvbox span.cm-keyword {
+  color: #f84934;
+}
+
+.cm-s-gruvbox span.cm-variable {
+  color: #ebdbb2;
+}
+.cm-s-gruvbox span.cm-variable-2 {
+  color: #ebdbb2;
+}
+.cm-s-gruvbox span.cm-variable-3,
+.cm-s-gruvbox span.cm-type {
+  color: #fabd2f;
+}
+.cm-s-gruvbox span.cm-operator {
+  color: #ebdbb2;
+}
+.cm-s-gruvbox span.cm-callee {
+  color: #ebdbb2;
+}
+.cm-s-gruvbox span.cm-def {
+  color: #ebdbb2;
+}
+.cm-s-gruvbox span.cm-property {
+  color: #ebdbb2;
+}
+.cm-s-gruvbox span.cm-string {
+  color: #b8bb26;
+}
+.cm-s-gruvbox span.cm-string-2 {
+  color: #8ec07c;
+}
+.cm-s-gruvbox span.cm-qualifier {
+  color: #8ec07c;
+}
+.cm-s-gruvbox span.cm-attribute {
+  color: #8ec07c;
+}
+
+/* .cm-s-gruvbox .CodeMirror-activeline-background { background: #3c3836; } */
+.cm-s-gruvbox .CodeMirror-matchingbracket {
+  background: #928374;
+  color: var(--code-background-color) !important;
+}
+
+.cm-s-gruvbox span.cm-builtin {
+  color: #fabd2f;
+}
+.cm-s-gruvbox span.cm-tag {
+  color: #fabd2f;
+}

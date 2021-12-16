@@ -58,7 +58,6 @@
 (defn init []
   (let [theme (if (dark-theme?) "dark" "light")
         ls-theme (session/get-ls :theme)]
-    (prn ls-theme)
     (if ls-theme
       (change-theme ls-theme)
       (change-theme theme))))

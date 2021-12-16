@@ -26,7 +26,9 @@
                  :controllers
                  [{:start #(ctrl/fetch-posts)}]}]
     ["/about"   :about]
-    ["/archive" :archive]
+    ["/archive" {:name :archive
+                 :controllers
+                 [{:start #(ctrl/fetch-posts)}]}]
     ["/blog/:id" {:name :post
                   :controllers
                   [{:parameters {:path [:id]}

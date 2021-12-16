@@ -6,7 +6,7 @@
    [herb.core :refer [<class]]
    ["animejs" :as anime]
    ["charming" :as charming]
-   [markdown.core :refer [md->html]]
+   [blog.markdown :as markdown]
    [blog.theme :as theme]
    [blog.utils :as utils]))
 
@@ -74,19 +74,38 @@
       [:p "No posts!"])]])
 
 (defn post-page []
-  (if-let [{:keys [content config]} (session/get :post)]
-    [:div.post
-     [:a.post-nav {:href "#/"} "Go home"]
-     (when config
-       [:header.post-header
-        [:h1.post-title (:title config)]
-        [:p.post-meta
-         (str (utils/format-date (:date config)) "\n" (:meta config))]])
-     [:article.post-content
-      {:dangerouslySetInnerHTML {:__html (md->html content)}}]]
-    [:div.loading "Loading..."]))
+  (r/with-let [mount!
+               (fn [this]
+                 (js/setTimeout #(markdown/replace-code this) "150"))]
+    [:div.blog
+     (if-let [{:keys [content config id]} (session/get :post)]
+       [:div.post
+        [:a.post-nav {:href "#/"} "Go home"]
+        (when config
+          (let [conf (parse-filename id)
+                date (utils/format-date (or (:date config) (:date conf)))]
+            [:header.post-header
+             [:h1.post-title (:title config)]
+             [:p.post-meta
+              (str date "\n" (:meta config))]]))
+        [:article.post-content
+         {:ref mount!
+          :dangerouslySetInnerHTML {:__html (markdown/to-html content)}}]]
+       [:div.loading "Loading..."])]))
 
-(defn archive-page [])
+(defn archive-page []
+  [:div.home
+   [:div.home-content
+    [:h3.title "Posts archive"]
+    (if-let [posts (session/get :posts)]
+      [:ul.posts-list
+       (for [post posts]
+         (let [conf (parse-filename post)]
+           ^{:key (str post)}
+           [:li.post-item
+            [:a.post-link {:href (str "#/blog/" post)} (:title conf)]
+            [:span.post-meta (:date conf)]]))]
+      [:p "No posts!"])]])
 
 (defn header []
   [:header.header

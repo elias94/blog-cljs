@@ -2,6 +2,9 @@
   --background-color: #111111;
   --text-color: #f9f9f9;
   --text-color-secondary: #aaaaaa;
+  --code-background-color: #111;
+  --code-textarea-shadow: none;
+  --code-textarea-border: 1.5px solid #444;
 }
 
 /*# sourceMappingURL=dark.css.map */

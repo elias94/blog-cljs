@@ -27,4 +27,5 @@
         :response-format :json
         :keywords?       true
         :params          {:id post-id}
-        :handler         #(session/set :post %)}))
+        :handler         #(->> (assoc % :id post-id)
+                               (session/set :post))}))
