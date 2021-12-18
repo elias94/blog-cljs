@@ -113,8 +113,13 @@ li {
   }
 
   &-content {
-    width: $width-post;
+    width: 100%;
     margin: 30px auto 160px auto;
+    padding: 30px;
+
+    @include mq('sm') {
+      width: $width-post;
+    }
   }
 
   .posts-list {
@@ -151,13 +156,18 @@ li {
 }
 
 .post {
-  width: $width-post;
+  width: $width-post-sm;
   margin: 170px auto 140px auto;
   padding: 0 30px;
+  overflow: hidden;
+
+  @include mq('sm') {
+    width: $width-post;
+  }
 
   &-title {
     font-size: $font-size-post-title;
-    font-weight: bold;
+    font-weight: 900;
     letter-spacing: -1px;
     line-height: 1.25;
   }
@@ -186,9 +196,29 @@ li {
     p {
       hyphens: auto;
       font-weight: 400;
-      font-size: $font-size-post;
+      font-size: $font-size-post-sm;
       line-height: 1.65;
       color: var(--text-color);
+
+      @include mq('sm') {
+        font-size: $font-size-post;
+      }
+
+      & > code {
+        border: 1px solid #444;
+        border-radius: 6px;
+        padding: 3px 4px;
+        margin: 0 5px;
+        font-family: $font-family-secondary;
+        font-size: 14px;
+        color: var(--text-color-secondary);
+      }
+    }
+
+    h1 {
+      margin-top: 1.75rem;
+      font-weight: 900;
+      font-size: 28px;
     }
 
     a {
@@ -256,4 +286,9 @@ h3.title {
   border-radius: 20px;
   border: var(--code-textarea-border);
   overflow: hidden;
+}
+
+.code-results {
+  margin: 20px 15px 5px 15px;
+  color: var(--code-text-color);
 }

@@ -1,5 +1,0 @@
----
-title: How is made
----
-
-

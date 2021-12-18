@@ -115,7 +115,7 @@ CodeMirror.defineMode("clojure", function (options) {
       "shutdown-agents", "simple-ident?", "simple-keyword?", "simple-symbol?",
       "slurp", "some", "some->", "some->>", "some-fn", "some?", "sort",
       "sort-by", "sorted-map", "sorted-map-by", "sorted-set", "sorted-set-by",
-      "sorted?", "special-symbol?", "spit", "split-at", "split-with", "str",
+      "sorted?", "special-symbol?", "spit", "split-at", "split-with",
       "string?", "struct", "struct-map", "subs", "subseq", "subvec", "supers",
       "swap!", "swap-vals!", "symbol", "symbol?", "sync", "tagged-literal",
       "tagged-literal?", "take", "take-last", "take-nth", "take-while", "test",

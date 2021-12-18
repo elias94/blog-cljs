@@ -90,8 +90,6 @@
         (println (str "Location: "
                       (when file (str file ":"))
                       line ":" column ""))))
-    (when-let [phase (cs/phase e stacktrace)]
-      (println "Phase:   " phase))
     (when-let [ec (when sci-error?
                     (error-context e src-map))]
       (ruler "Context")

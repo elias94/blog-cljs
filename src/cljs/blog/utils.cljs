@@ -1,6 +1,7 @@
 (ns blog.utils
   (:require
-   ["date-fns" :as date]))
+   ["date-fns" :as date]
+   [goog.object]))
 
 (defn getElementById [id]
   (.getElementById js/document id))
@@ -17,3 +18,20 @@
   (and
    (.-matchMedia js/window)
    (.-matches (.matchMedia js/window "(prefers-color-scheme: dark)"))))
+
+(defn obj->clj
+  "Convert a js object to Clojurescript map."
+  [obj]
+  (if (goog/isObject obj)
+    (-> (fn [result key]
+          (let [v (goog.object/get obj key)]
+            (if (= "function" (goog/typeOf v))
+              result
+              (assoc result (keyword key) (obj->clj v)))))
+        (reduce {} (.getKeys ^js goog/object obj)))
+    obj))
+
+(defn in?
+  "Returns true if coll contains el."
+  [coll el]
+  (some #(= el %) coll))
