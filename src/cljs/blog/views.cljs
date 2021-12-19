@@ -8,6 +8,7 @@
    ["charming" :as charming]
    [blog.markdown :as markdown]
    [blog.theme :as theme]
+   [blog.prompt :as prompt]
    [blog.utils :as utils]))
 
 (defn about-page []
@@ -54,10 +55,11 @@
     #(title-anim)
     :reagent-render
     (fn []
-      [:div.main-title {:class (<class styled-title)}
+      [:a {:href "/#" :style {:color "white"}}
+       [:div.main-title {:class (<class styled-title)}
        [:div "ELIA"]
        [:div "SCO"]
-       [:div "TTO"]])}))
+       [:div "TTO"]]])}))
 
 (defn home-page []
   [:div.home

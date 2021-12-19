@@ -1,6 +1,4 @@
-:root {
-  color-scheme: light dark;
-}
+@import "root";
 
 * {
   box-sizing: border-box;
@@ -23,10 +21,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  font-family: $font-family;
+  font-family: var(--font-family);
   font-weight: 400;
   line-height: 1.4;
-  font-size: $font-size-default;
+  font-size: var(--font-size-default);
   color: var(--text-color);
   background: var(--background-color);
 }
@@ -42,7 +40,7 @@ ul {
 }
 
 li {
-  font-size: $font-size-ul;
+  font-size: var(--font-size-ul);
   margin: .5rem 0;
 }
 
@@ -63,13 +61,13 @@ li {
 }
 
 .footer {
-  font-family: $font-base;
+  font-family: var(--font-base);
   overflow: hidden;
   width: 100%;
   text-align: center;
   padding: 0 30px;
   padding-bottom: 1.5em;
-  font-size: $font-size-footer;
+  font-size: var(--font-size-footer);
   color: var(--text-color-secondary);
 
   &-menu {
@@ -81,7 +79,7 @@ li {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-size: $font-size-menu;
+    font-size: var(--font-size-menu);
 
     & > a {
       color: var(--text-color-secondary);
@@ -108,6 +106,8 @@ li {
 
       span {
         opacity: 0;
+        user-select: none;
+        color: var(--text-color);
       }
     }
   }
@@ -118,7 +118,7 @@ li {
     padding: 30px;
 
     @include mq('sm') {
-      width: $width-post;
+      width: var(--width-post);
     }
   }
 
@@ -134,7 +134,7 @@ li {
   }
 
   .post-link {
-    font-size: $font-size-post;
+    font-size: var(--font-size-post);
     color: var(--text-color);
     text-decoration: none;
     font-weight: 600;
@@ -156,25 +156,25 @@ li {
 }
 
 .post {
-  width: $width-post-sm;
+  width: var(--width-post-sm);
   margin: 170px auto 140px auto;
   padding: 0 30px;
   overflow: hidden;
 
   @include mq('sm') {
-    width: $width-post;
+    width: var(--width-post);
   }
 
   &-title {
-    font-size: $font-size-post-title;
+    font-size: var(--font-size-post-title);
     font-weight: 900;
     letter-spacing: -1px;
     line-height: 1.25;
   }
 
   &-meta {
-    font-family: $font-base;
-    font-size: $font-size-post-meta;
+    font-family: var(--font-base);
+    font-size: var(--font-size-post-meta);
     line-height: 2em;
     color: var(--text-color-secondary);
     margin-top: 15px;
@@ -196,12 +196,12 @@ li {
     p {
       hyphens: auto;
       font-weight: 400;
-      font-size: $font-size-post-sm;
+      font-size: var(--font-size-post-sm);
       line-height: 1.65;
       color: var(--text-color);
 
       @include mq('sm') {
-        font-size: $font-size-post;
+        font-size: var(--font-size-post);
       }
 
       & > code {
@@ -209,7 +209,7 @@ li {
         border-radius: 6px;
         padding: 3px 4px;
         margin: 0 5px;
-        font-family: $font-family-secondary;
+        font-family: var(--font-family-secondary);
         font-size: 14px;
         color: var(--text-color-secondary);
       }
@@ -243,7 +243,7 @@ li {
 
       p {
         text-align: unset;
-        font-size: $font-size-blockquote;
+        font-size: var(--font-size-blockquote);
       }
 
       p + p {
@@ -291,4 +291,15 @@ h3.title {
 .code-results {
   margin: 20px 15px 5px 15px;
   color: var(--code-text-color);
+}
+
+.command-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    outline: none;
+  }
 }

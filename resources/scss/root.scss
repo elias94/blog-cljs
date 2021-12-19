@@ -1,0 +1,58 @@
+:root {
+  color-scheme: light dark;
+
+  --font-base: -apple-system, 
+              BlinkMacSystemFont, 
+              "Segoe UI", 
+              Roboto, 
+              Oxygen-Sans,
+              Ubuntu,
+              Cantarell, 
+              "Helvetica Neue", 
+              sans-serif;
+  --font-family: "Inter", var(--font-base);
+  --font-family-secondary: Ubuntu Mono, 
+                          Consolas, 
+                          Menlo, 
+                          Monospace;
+  --font-family-blog: "EB Garamond", var(--font-base);
+
+  --color-coolGray-50:  #f9fafb;
+  --color-coolGray-100: #f3f4f6;
+  --color-coolGray-200: #e5e7eb;
+  --color-coolGray-300: #d1d5db;
+  --color-coolGray-400: #9ca3af;
+  --color-coolGray-500: #6b7280;
+  --color-coolGray-600: #4b5563;
+  --color-coolGray-700: #374151;
+  --color-coolGray-800: #1f2937;
+  --color-coolGray-900: #111827;
+  --color-gray-lighter: #f6f8fa;
+
+  --color-gray-light:   $color-coolGray-400;
+  --color-gray:         $color-coolGray-500;
+
+  --color-background:   #fff;
+  --color-text:         #24292f;
+  --color-text-dark:    #14191f;
+
+  --font-size-blockquote:    20px;
+  --font-size-default:       16px;
+  --font-size-footer:        14px;
+  --font-size-menu:          16px;
+  --font-size-post-title:    50px;
+  --font-size-post-meta:     16px;
+  --font-size-post:          17px;
+  --font-size-ul:            17px;
+  --font-size-blockquote-sm: 20px;
+  --font-size-default-sm:    12px;
+  --font-size-footer-sm:     14px;
+  --font-size-menu-sm:       16px;
+  --font-size-post-title-sm: 50px;
+  --font-size-post-meta-sm:  16px;
+  --font-size-post-sm:       17px;
+  --font-size-ul-sm:         17px;
+
+  --width-post:    700px;
+  --width-post-sm: 100%;
+}
