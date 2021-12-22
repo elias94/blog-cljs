@@ -98,6 +98,21 @@ li {
   justify-content: start;
 
   .main-title {
+    font-weight: 700;
+    font-size: 5em;
+    line-height: .85em;
+    text-transform: uppercase;
+    letter-spacing: -.05em;
+    border: 7px solid var(--text-color);
+    padding: 20px;
+    margin: 40px 0;
+    opacity: 1;
+
+    @include mq('sm') {
+      padding: 30px;
+      margin: 80px 0;
+    }
+
     & > div {
       width: 100%;
       display: flex;
@@ -114,11 +129,12 @@ li {
 
   &-content {
     width: 100%;
-    margin: 30px auto 160px auto;
+    margin: 10px auto 60px auto;
     padding: 30px;
 
     @include mq('sm') {
       width: var(--width-post);
+      margin: 30px auto 160px auto;
     }
   }
 
@@ -302,4 +318,8 @@ h3.title {
   input {
     outline: none;
   }
+}
+
+.theme-switch {
+  margin: 5px 0;
 }

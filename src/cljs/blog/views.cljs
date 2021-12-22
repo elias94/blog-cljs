@@ -24,17 +24,6 @@
               (subs 1)
               (string/replace #"-" " "))})
 
-(defn styled-title []
-  {:font-weight 700
-   :font-size "5em"
-   :line-height ".85em"
-   :text-transform "uppercase"
-   :letter-spacing "-.05em"
-   :border "7px solid var(--text-color)"
-   :padding "30px"
-   :margin "80px 0"
-   :opacity 1})
-
 (defn title-anim []
   (let [title-el (.querySelector js/document ".main-title")]
     (charming title-el)
@@ -56,7 +45,7 @@
     :reagent-render
     (fn []
       [:a {:href "/#" :style {:color "white"}}
-       [:div.main-title {:class (<class styled-title)}
+       [:div.main-title
        [:div "ELIA"]
        [:div "SCO"]
        [:div "TTO"]]])}))

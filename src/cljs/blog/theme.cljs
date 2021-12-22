@@ -50,7 +50,7 @@
 
 (defn button []
   (let [theme (session/get :theme)]
-    [:div {:on-click #(change-theme (invert theme))}
+    [:div.theme-switch {:on-click #(change-theme (invert theme))}
      (if (= theme "dark")
        sun-icon
        moon-icon)]))
