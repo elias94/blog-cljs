@@ -58,7 +58,7 @@
 
   :profiles
   {:uberjar {:omit-source true
-             
+             :jvm-opts ["-Xmx2g"]
              :prep-tasks ["compile" ["run" "-m" "shadow.cljs.devtools.cli" "release" "app"]]
              :aot :all
              :uberjar-name "blog.jar"
