@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "styles": "sass --watch resources/scss/main.scss:resources/public/css/styles.css resources/scss/light.scss:resources/public/css/light.css resources/scss/dark.scss:resources/public/css/dark.css"
+    "styles": "sass --watch resources/scss/main.scss:resources/public/css/styles.css resources/scss/light.scss:resources/public/css/light.css resources/scss/dark.scss:resources/public/css/dark.css",
+    "start": "npx shadow-cljs -d cider/cider-nrepl:0.26.0 watch app test"
   },
   "devDependencies": {
     "shadow-cljs": "^2.16.5"

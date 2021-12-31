@@ -48,8 +48,7 @@
   (string/starts-with? post "@"))
 
 (defn- get-posts-files []
-  (-> "posts"
-      (io/resource)
+  (-> "resources/posts"
       (io/file)
       (.listFiles)))
 
@@ -61,7 +60,7 @@
        (filter #(not (string/starts-with? % "@")))))
 
 (defn post? [f-name]
-  (let [src (io/resource (post-name f-name))]
+  (let [src (str "resources/" (post-name f-name))]
     (and src (fs/exists? src)
          (not (fs/directory? src)))))
 

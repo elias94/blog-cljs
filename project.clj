@@ -62,7 +62,7 @@
              :prep-tasks ["compile" ["run" "-m" "shadow.cljs.devtools.cli" "release" "app"]]
              :aot :all
              :uberjar-name "blog.jar"
-             :source-paths ["env/prod/clj"  "env/prod/cljs" ]
+             :source-paths ["env/prod/clj" "env/prod/cljs"]
              :resource-paths ["env/prod/resources"]}
 
    :dev           [:project/dev :profiles/dev]
